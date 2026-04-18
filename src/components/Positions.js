@@ -10,7 +10,7 @@ const Positions = () => {
   const[positionData,setPositionData]=useState([]);
   
     useEffect(()=>{
-      let url="http://localhost:8080/positionsdata";
+      let url="https://zerodha-backend-7sge.vercel.app/positionsdata";
        let fetchPosition=()=>{
         
           fetch(url).then((res)=>{

@@ -14,7 +14,7 @@ const Home = () => {
     const verifyUser = async () => {
       try {
        
-        const response = await fetch("http://localhost:8080/verify", {
+        const response = await fetch("https://zerodha-backend-7sge.vercel.app/verify", {
           method: "POST",
           
           credentials: "include", 

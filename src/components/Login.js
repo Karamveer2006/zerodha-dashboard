@@ -30,7 +30,7 @@ const Login = () => {
     e.preventDefault();
     
     try {
-      const response = await fetch("http://localhost:8080/login", {
+      const response = await fetch("https://zerodha-backend-7sge.vercel.app/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -47,6 +47,7 @@ const Login = () => {
       
       
        const {success,message,user}=data;
+       
        const newuserInfo={
                email:user.email,
                username:user.username,

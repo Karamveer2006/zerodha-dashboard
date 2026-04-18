@@ -9,7 +9,7 @@ import { useSelector } from "react-redux";
 
 function BuyWindow() {
     const user=useSelector(state=>state.user);
-    console.log(user.user[0].id);
+   
 const Context =useContext(OrderContext);
 const[stockQuantity,setStockQuantity]=useState(1);
 const[stockPrice,setStockPrice]=useState(0.00);
@@ -18,7 +18,7 @@ const[stockPrice,setStockPrice]=useState(0.00);
   const handleBuyClick=()=>{
 
     const postOrderData=async(uid)=>{
-      await fetch('http://localhost:8080/orderdata',{
+      await fetch('https://zerodha-backend-7sge.vercel.app/orderdata',{
         method:'post',
         headers: {
           'Content-Type': 'application/json', 

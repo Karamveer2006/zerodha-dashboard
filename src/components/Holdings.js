@@ -56,7 +56,7 @@ const data = {
 };
 
   useEffect(()=>{
-    let url="http://localhost:8080/holdingsdata";
+    let url="https://zerodha-backend-7sge.vercel.app/holdingsdata";
      let fetchHoldings=()=>{
       
         fetch(url).then((res)=>{
