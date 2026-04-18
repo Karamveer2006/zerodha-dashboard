@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import { CookiesProvider } from 'react-cookie';
 import { BrowserRouter } from "react-router-dom";
 
@@ -14,8 +14,8 @@ function Main() {
         <div className="Main">
          
       <Routes>
-       
-        <Route path="/*" element={<Home />} />
+        <Route path="/" element={<Navigate to="/dashboard" replace />} />
+        <Route path="/dashboard/*" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignupPage />} />
         

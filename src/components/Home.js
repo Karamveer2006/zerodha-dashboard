@@ -13,25 +13,28 @@ const Home = () => {
   useEffect(() => {
     const verifyUser = async () => {
       try {
-       
+        const token = localStorage.getItem("authToken");
+        const headers = token ? { Authorization: `Bearer ${token}` } : {};
         const response = await fetch("https://zerodha-backend-three.vercel.app/verify", {
           method: "POST",
-          
+          headers,
           credentials: "include", 
         });
 
         const data = await response.json();
+        console.log("Verification response:", data);
 
        
         if (data.status) {
           setUsername(data.user);
           setIsLoading(false); 
         } else {
-     
+          localStorage.removeItem("authToken");
           navigate("/login");
         }
       } catch (error) {
         console.error("Verification failed:", error);
+        localStorage.removeItem("authToken");
         navigate("/login");
       }
     };

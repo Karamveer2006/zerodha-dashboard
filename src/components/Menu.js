@@ -45,24 +45,24 @@ const Menu = () => {
       <div className="menus">
         <ul>
           <li>
-             <Link style={{textDecoration:"none"}} className={selectedMenue===0 ?activeMenu:menuClass} onClick={()=>onSelect(0)}   to={"/"}>Dashboard</Link>
+             <Link style={{textDecoration:"none"}} className={selectedMenue===0 ?activeMenu:menuClass} onClick={()=>onSelect(0)}   to={"/dashboard"}>Dashboard</Link>
             
            
           </li>
           <li>
-            <Link style={{textDecoration:"none"}} className={selectedMenue===1 ?activeMenu:menuClass} onClick={()=>onSelect(1)} to={"/orders"}>Orders</Link>
+            <Link style={{textDecoration:"none"}} className={selectedMenue===1 ?activeMenu:menuClass} onClick={()=>onSelect(1)} to={"/dashboard/orders"}>Orders</Link>
           </li>
           <li>
-            <Link style={{textDecoration:"none"}} className={selectedMenue===2 ?activeMenu:menuClass} onClick={()=>onSelect(2)} to={"/holdings"}>Holdings</Link>
+            <Link style={{textDecoration:"none"}} className={selectedMenue===2 ?activeMenu:menuClass} onClick={()=>onSelect(2)} to={"/dashboard/holdings"}>Holdings</Link>
           </li>
           <li>
-            <Link style={{textDecoration:"none"}} className={selectedMenue===3 ?activeMenu:menuClass} onClick={()=>onSelect(3)} to={"/positions"}>Positions</Link>
+            <Link style={{textDecoration:"none"}} className={selectedMenue===3 ?activeMenu:menuClass} onClick={()=>onSelect(3)} to={"/dashboard/positions"}>Positions</Link>
           </li>
           <li>
-            <Link style={{textDecoration:"none"}} className={selectedMenue===4 ?activeMenu:menuClass} onClick={()=>onSelect(4)} to={"/funds"}>Funds</Link>
+            <Link style={{textDecoration:"none"}} className={selectedMenue===4 ?activeMenu:menuClass} onClick={()=>onSelect(4)} to={"/dashboard/funds"}>Funds</Link>
           </li>
           <li>
-            <Link style={{textDecoration:"none"}} className={selectedMenue===5 ?activeMenu:menuClass} onClick={()=>onSelect(5)} to={"/apps"}>Apps</Link>
+            <Link style={{textDecoration:"none"}} className={selectedMenue===5 ?activeMenu:menuClass} onClick={()=>onSelect(5)} to={"/dashboard/apps"}>Apps</Link>
           </li>
         </ul>
         <hr />

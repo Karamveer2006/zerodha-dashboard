@@ -44,15 +44,7 @@ const SignupPage = () => {
         }),
       });
        const data = await response.json();
-       const {success,message,user}=data;
-       const newuserInfo={
-        email:user.email,
-        username:user.username,
-        id:user._id
-       }
-       
-      
-       dispatch(addUser(newuserInfo))
+      const {success,message,user,token}=data;
 
 
           
@@ -60,15 +52,28 @@ const SignupPage = () => {
       
       
       if (success) {
+        if (user) {
+          dispatch(
+            addUser({
+              email: user.email,
+              username: user.username,
+              id: user._id,
+            })
+          );
+        }
+        if (token) {
+          localStorage.setItem("authToken", token);
+        }
         handleSuccess(message);
         
       
         setInputValue({ email: "", password: "", username: "" });
         
         setTimeout(() => {
-          navigate("/"); 
+          navigate("/dashboard"); 
         }, 1000);
       } else {
+        localStorage.removeItem("authToken");
         handleError(message);
       }
     } catch (error) {

@@ -16,25 +16,49 @@ const[stockPrice,setStockPrice]=useState(0.00);
 
 
   const handleBuyClick=()=>{
+    const token = localStorage.getItem("authToken");
+    const userId = user.user?.[0]?.id;
+    if (!userId && !token) {
+      return;
+    }
 
     const postOrderData=async(uid)=>{
-      await fetch('https://zerodha-backend-three.vercel.app/orderdata',{
+      const headers = {
+        'Content-Type': 'application/json',
+      };
+      if (token) {
+        headers.Authorization = `Bearer ${token}`;
+      }
+
+      const payload = { 
+        name: uid,
+        qty: stockQuantity,
+        price: stockPrice,
+        mode: 'Buy',
+      };
+      if (userId) {
+        payload.userId = userId;
+      }
+
+      const response = await fetch('https://zerodha-backend-three.vercel.app/orderdata',{
         method:'post',
-        headers: {
-          'Content-Type': 'application/json', 
-        },
-        body: JSON.stringify({ 
-          name: uid,
-          qty: stockQuantity,
-          price: stockPrice,
-          mode: 'Buy',
-          userId: user.user[0].id
-        }),
-      })
+        headers,
+        credentials: "include",
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        return false;
+      }
+
+      return true;
     }
     
-    postOrderData(Context.selectedStockUid);
-    Context.closeBuyWindow();
+    postOrderData(Context.selectedStockUid).then((ok) => {
+      if (ok) {
+        Context.closeBuyWindow();
+      }
+    });
   
 
   }

@@ -12,23 +12,33 @@ const Orders = () => {
       useEffect(()=>{
         let url="https://zerodha-backend-three.vercel.app/ordersdetails";
          let fetchOrders=()=>{
-          
+            const token = localStorage.getItem("authToken");
+            const userId = user.user?.[0]?.id;
+            const headers = {
+              "Content-Type": "application/json",
+            };
+            if (token) {
+              headers.Authorization = `Bearer ${token}`;
+            }
+
+            const payload = {};
+            if (userId) {
+              payload.userId = userId;
+            }
+
             fetch(url, {
         method: "post",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers,
         
         credentials: "include", 
-        body: JSON.stringify({
-          userId: user.user[0].id,
-        }),
+        body: JSON.stringify(payload),
+        
       }).then((res)=>{
-              
               return res.json();
               
     
             }).then((data)=>{
+              console.log(data);
               setOrderData(data);
               
             }).catch((err)=>{
@@ -48,7 +58,7 @@ const Orders = () => {
       <div className="orders">
         <div className="no-orders">
           <p>You haven't placed any orders today</p>
-          <Link to={"/"} className="btn">
+          <Link to={"/dashboard"} className="btn">
             Get started
           </Link>
         </div>
