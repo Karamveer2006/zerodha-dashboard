@@ -56,7 +56,7 @@ const data = {
 };
 
   useEffect(()=>{
-    let url="https://zerodha-backend-7sge.vercel.app/holdingsdata";
+    let url="https://zerodha-backend-three.vercel.app/holdingsdata";
      let fetchHoldings=()=>{
       
         fetch(url).then((res)=>{

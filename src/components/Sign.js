@@ -32,7 +32,7 @@ const SignupPage = () => {
 
     try {
       
-        const response = await fetch("https://zerodha-backend-7sge.vercel.app/signup", {
+        const response = await fetch("https://zerodha-backend-three.vercel.app/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

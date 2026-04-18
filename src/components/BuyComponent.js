@@ -18,7 +18,7 @@ const[stockPrice,setStockPrice]=useState(0.00);
   const handleBuyClick=()=>{
 
     const postOrderData=async(uid)=>{
-      await fetch('https://zerodha-backend-7sge.vercel.app/orderdata',{
+      await fetch('https://zerodha-backend-three.vercel.app/orderdata',{
         method:'post',
         headers: {
           'Content-Type': 'application/json', 

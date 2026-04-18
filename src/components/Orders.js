@@ -10,7 +10,7 @@ const Orders = () => {
 
     
       useEffect(()=>{
-        let url="https://zerodha-backend-7sge.vercel.app/ordersdetails";
+        let url="https://zerodha-backend-three.vercel.app/ordersdetails";
          let fetchOrders=()=>{
           
             fetch(url, {

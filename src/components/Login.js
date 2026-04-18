@@ -30,7 +30,7 @@ const Login = () => {
     e.preventDefault();
     
     try {
-      const response = await fetch("https://zerodha-backend-7sge.vercel.app/login", {
+      const response = await fetch("https://zerodha-backend-three.vercel.app/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
